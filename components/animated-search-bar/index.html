@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Search Bar</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            background-color: lightgray;
+            height: 100vh;
+            padding: 2rem;
+        }
+
+        .animated-search-bar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            place-items: center;
+        }
+
+        #search-wrapper {
+            display: flex;
+            box-sizing: border-box;
+            grid-column: 2/3;
+            background-color: white;
+            padding: 11px 15px;
+            border-radius: 50%;
+            width: 50px;
+            animation: expandWidth 3s 0.5s forwards;
+        }
+
+        @keyframes expandWidth {
+            from {
+                border-radius: 30px;
+            }
+
+            to {
+                width: 100%;
+                transform: scaleX(1);
+                border-radius: 30px;
+            }
+        }
+
+        .search-icon {
+            color: grey;
+        }
+
+        input {
+            padding-left: 5px;
+            border: none;
+            width: 0;
+            outline: none;
+            animation: showText 7s 2.8s forwards;
+        }
+
+        @keyframes showText {
+            to {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="animated-search-bar">
+        <div id="search-wrapper">
+            <i class="material-icons search-icon">search</i>
+            <input type="text" placeholder="Search your text here...">
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>
